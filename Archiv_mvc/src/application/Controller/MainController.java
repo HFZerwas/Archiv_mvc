@@ -86,14 +86,6 @@ public class MainController {
 		ourView.setSelectFileTextarea(selectFileTextarea);
 	}
 
-	public void selectFile() {
-		ourModel.selectFile();		
-		}
-	
-	public void selectArchive() {
-		ourModel.selectArchive();	
-		
-	}
 	
 	public ListView<String> getSelectArchivListView(){
 		return ourView.getSelectArchivListView();
@@ -153,6 +145,11 @@ public class MainController {
 	public void configloader() throws IOException {
 		ourEcExcelWriter.configLoader();
 		
+	}
+
+
+	public void selectDirectory(int i) {
+		ourModel.selectDirectory(i);
 	}
 	
 	}

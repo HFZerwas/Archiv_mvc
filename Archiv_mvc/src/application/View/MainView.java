@@ -183,12 +183,12 @@ application.Main.root.getChildren().add(getSelectFileTextarea());
 	 
 	 /* Eventhandling */
  selectFiButton.setOnAction(e ->{
-	 controller.selectFile();
+	 controller.selectDirectory(1);
 	 });
 	
 	 
  selectArchivButton.setOnAction(e ->{
-	controller.selectArchive();
+	controller.selectDirectory(2);
 	});
 	 
  getValuesButton.setOnAction(e ->{

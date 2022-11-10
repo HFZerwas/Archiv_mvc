@@ -80,16 +80,16 @@ public class DirectoryZipper {
     static void copyToArchive(String oldFilePath, String newFilePath,  String projectNrString) throws IOException { {
     	
     	    System.out.println(newFilePath);
-            FileInputStream in = new FileInputStream(oldFilePath + ".zip");
-            FileOutputStream out = new FileOutputStream(newFilePath + "\\\\" + projectNrString + ".zip");
+            FileInputStream inputStr = new FileInputStream(oldFilePath + ".zip");
+            FileOutputStream outputStr = new FileOutputStream(newFilePath + "\\\\" + projectNrString + ".zip");
             long dateiLaenge = (new File(oldFilePath+ ".zip")).length();
             byte[] b = new byte[(int) dateiLaenge];
-            int len;
-            while ((len = in.read(b)) > 0) {
-                out.write(b, 0, len);
+            int len; 
+            while ((len = inputStr.read(b)) > 0) {
+                outputStr.write(b, 0, len);
             }
-            out.close();
-            in.close();
+            outputStr.close();
+            inputStr.close();
             System.out.println("Datei '" + oldFilePath + ".zip' wurde in die Datei '"
                     + newFilePath + ".zip" + "' kopiert.");
         }

@@ -29,31 +29,38 @@ public Model(MainController controller) throws IOException {
 	}
 	
 	
-public void selectFile() {
-		
-	DirectoryChooser fChooser = new DirectoryChooser();
-	File selectedFile = fChooser.showDialog(null);
-	if (selectedFile != null) {
-		this.dir = selectedFile;
-		this.controller.getSelectFileTextarea().clear();
-		this.controller.setSelectFileTextarea(selectedFile.getAbsolutePath());
-		this.zipDirName = selectedFile.getAbsolutePath();
-		System.out.println(this.zipDirName);
-	} else {
-		System.out.println("select File hat nicht geklappt");
-	}
-}
+//public void selectFile() {
+//		
+//	DirectoryChooser directoryChooser = new DirectoryChooser();
+//	File selectedFile = directoryChooser.showDialog(null);
+//	if (selectedFile != null) {
+//		this.dir = selectedFile;
+//		this.controller.getSelectFileTextarea().clear();
+//		this.controller.setSelectFileTextarea(selectedFile.getAbsolutePath());
+//		this.zipDirName = selectedFile.getAbsolutePath();
+//		System.out.println(this.zipDirName);
+//	} else {
+//		System.out.println("select File hat nicht geklappt");
+//	}
+//}
 	 
 	
-public void selectArchive() {
+public void selectDirectory(int choosenButton) {
 	DirectoryChooser dChooser = new DirectoryChooser();
 	File directoryFile = dChooser.showDialog(null);
 	this.controller.getSelectArchivListView().getItems().clear();
-	if (directoryFile != null) {
+	if (directoryFile != null && choosenButton == 2) {
 		this.controller.getSelectArchivListView().getItems().add(directoryFile.getAbsolutePath());
 		archivPfadString = directoryFile.getAbsolutePath();
 		System.out.println("Archivpfad: " + archivPfadString);
-	} else {	
+	} else if(directoryFile != null && choosenButton == 1) {
+		this.dir = directoryFile;
+		this.controller.getSelectFileTextarea().clear();
+		this.controller.setSelectFileTextarea(directoryFile.getAbsolutePath());
+		this.zipDirName = directoryFile.getAbsolutePath();
+		System.out.println(this.zipDirName);}
+	else {
+		
 		System.out.println("\n select Archiv hat nicht geklappt. \n");
 	}
 }
