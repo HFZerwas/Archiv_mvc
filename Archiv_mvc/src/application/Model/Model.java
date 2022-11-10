@@ -78,7 +78,7 @@ if (this.gotValues == false) {
 	 int gutachtenCounter = 0;
 	 boolean moreDokuments = false;
 	 for(String filePath : zippedFile.filesListInDir) {
-		if(filePath.contains("GUT")) {
+		if(filePath.contains("GUT") && !(filePath.contains("heckliste"))) {
 		if (gutachtenCounter==0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Gutachten\n");
 			}
@@ -86,13 +86,14 @@ if (this.gotValues == false) {
 			gutachtenCounter++;
 			}
 							
-		if (filePath.contains("heckliste")) {
+		if (filePath.contains("heckliste") && filePath.contains("GUT")) {
 		if (checklistCounter == 0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Checklisten\n");
 			}								
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
-			checklistCounter++;
-			}else if (filePath.substring(this.zipDirName.length()+1).contains("\\")) {
+			checklistCounter++;}
+		
+		if(filePath.substring(this.zipDirName.length()+1).contains("\\")) {
 			if (!moreDokuments) {
 			moreDokuments=true;
 			this.controller.getFoundDocumentsTextArea().appendText("\nWeitere Dokumentation zu Gutachten\n");
