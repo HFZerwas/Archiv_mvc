@@ -15,11 +15,13 @@ public class FileCopier {
 	}
 	
 public void copyToArchive() {
-		
-		File selectedFile2 = new File(this.model.archivPfadString + "\\" + String.valueOf(this.model.projectNumber)+ "\\\\" 
-		+ ExcelWriter.foundProjNameString + "\\\\" + String.valueOf(this.model.date));
+	String oldFilePath = this.model.getZipDirName();
+	String newFilePath = this.model.archivPfadString + "\\" + String.valueOf(this.model.projectNumber) ;
+		File selectedFile2 = new File(newFilePath + "\\\\" + this.model.getProjectNumber() + "_" 
+   		+ ExcelWriter.foundProjNameString + "\\\\" +  this.model.getDate());
 		System.out.println("\nArchivordner wurde erfolgreich erstellt: " + selectedFile2.mkdirs() + "\n"); 
-		
+		ExcelWriter.speicherortString = (newFilePath + "\\" + this.model.getProjectNumber() + "_" 
+		   		+ ExcelWriter.foundProjNameString + "\\" +  this.model.getDate());
 		if (this.model.gotValues == false) {
 			
 			 Alert fnfAlert = new Alert(AlertType.WARNING);
@@ -28,8 +30,7 @@ public void copyToArchive() {
 				fnfAlert.show();
 		} else {
 			 try {
-			String oldFilePath = this.model.getZipDirName();
-			String newFilePath = this.model.archivPfadString + "\\" + String.valueOf(this.model.projectNumber) ;
+
 			
 		    System.out.println(newFilePath);
 		    System.out.println(newFilePath + "\\" + this.model.getDate() 
@@ -39,8 +40,8 @@ public void copyToArchive() {
 		   FileInputStream in = new FileInputStream(oldFilePath + ".zip");
 		   FileOutputStream out = null;
 		    do{
-		    out = new FileOutputStream(newFilePath + "\\\\" + this.model.getProjectNumber() 
-		               		+ ExcelWriter.foundProjNameString + this.model.getDate() +  ".zip");
+		    out = new FileOutputStream(newFilePath + "\\\\" + this.model.getProjectNumber() + "_" 
+		               		+ ExcelWriter.foundProjNameString + "\\\\" +  this.model.getDate() +  ".zip");
 		    }while(out==null);
 		            long dateiLaenge = (new File(oldFilePath+ ".zip")).length();
 		            
@@ -54,7 +55,8 @@ public void copyToArchive() {
 		            in.close();
 		            ExcelWriter.archivPfadString = newFilePath;
 		            System.out.println("Datei '" + oldFilePath + ".zip' wurde in die Datei '"
-		                    + newFilePath + ".zip" + "' kopiert.");
+		                    +(newFilePath + "\\" + this.model.getProjectNumber() + "_" 
+				            + ExcelWriter.foundProjNameString + "\\" +  this.model.getDate() +  ".zip") + "' kopiert.");
 		        }catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -24,12 +24,13 @@ import javafx.scene.control.Alert.AlertType;
 public class ExcelWriter {
 	
 	static String hashValueString = "";
-	String archivedateString; 
+	static String archivedateString; 
 	static String foundProjNameString = "";
 	static String archivPfadString = "";
 	static String aktuelleProjektnamenListeString = "";
 	static String archivlisteString; //Liste in die die Daten übernommen werden (Archivliste.xlsx)
-	String archiveYearString; 
+	static String archiveYearString; 
+	static String speicherortString;
 	private static String inspBerString = "";
 	private static String unterauftragsnehmerString = ""; 
 	private static String auslandString = "";
@@ -98,7 +99,7 @@ public class ExcelWriter {
 		 
 		 Cell abgelam = row.createCell(3);
 		 abgelam.setCellStyle(cs); 
-		 abgelam.setCellValue(archivedateString );  
+		 abgelam.setCellValue(archivedateString);  
 		 
 		 Cell saveTill = row.createCell(4);
 		 saveTill.setCellStyle(cs);  
@@ -114,7 +115,7 @@ public class ExcelWriter {
 		 
 		 Cell Speicherort = row.createCell(7);
 		 Speicherort.setCellStyle(cs);  
-		 Speicherort.setCellValue(this.model.archivPfadString + "\\" + String.valueOf(this.model.projectNumber) + "\\\\" + String.valueOf(this.model.date));  
+		 Speicherort.setCellValue(speicherortString);  
 		 
 		 Cell inspBCell = row.createCell(8);
 		 inspBCell.setCellStyle(cs);

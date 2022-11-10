@@ -82,15 +82,14 @@ if (this.gotValues == false) {
 		if (gutachtenCounter==0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Gutachten\n");
 			}
-			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
+			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			gutachtenCounter++;
 			}
 							
-		else if (filePath.contains("checkliste")) {
+		if (filePath.contains("heckliste")) {
 		if (checklistCounter == 0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Checklisten\n");
 			}								
-			//this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			checklistCounter++;
 			}else if (filePath.substring(this.zipDirName.length()+1).contains("\\")) {
@@ -171,17 +170,17 @@ public void getDateWithDots() {
 			if (Integer.valueOf(datesecondthalfString)>2012 && (Integer.valueOf(datefirsthalfString)<2013 
 					|| Integer.valueOf(datefirsthalfString)>2100))
 			{
-				this.excelWriter.archiveYearString = String.valueOf((Integer.valueOf(datesecondthalfString) + 10));
-				this.excelWriter.archivedateString = datefirsthalfString.substring(0,2) + "." + datefirsthalfString.substring(2) 
+				ExcelWriter.archiveYearString = String.valueOf((Integer.valueOf(datesecondthalfString) + 10));
+				ExcelWriter.archivedateString = datefirsthalfString.substring(0,2) + "." + datefirsthalfString.substring(2) 
 				+ "." + datesecondthalfString;
-				System.out.println("archivedateString =" + this.excelWriter.archivedateString);
+				System.out.println("archivedateString =" + ExcelWriter.archivedateString);
 				
 			}else {
-				this.excelWriter.archiveYearString = String.valueOf((Integer.valueOf(datefirsthalfString) + 10));
-				this.excelWriter.archivedateString =  datesecondthalfString.substring(2)  + "." 
+				ExcelWriter.archiveYearString = String.valueOf((Integer.valueOf(datefirsthalfString) + 10));
+				ExcelWriter.archivedateString =  datesecondthalfString.substring(2)  + "." 
 				+ datesecondthalfString.substring(0, 2) + "." + datefirsthalfString;
-				System.out.println("archivedateString =" + this.excelWriter.archivedateString);
-				this.controller.getProjectDaTeLabel().setText(this.excelWriter.archivedateString);
+				System.out.println("archivedateString =" + ExcelWriter.archivedateString);
+				this.controller.getProjectDaTeLabel().setText(ExcelWriter.archivedateString);
 				}
 			}
 	}
