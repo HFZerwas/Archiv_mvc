@@ -33,7 +33,7 @@ public class ExcelWriter {
 	private static String inspBerString = "";
 	private static String unterauftragsnehmerString = ""; 
 	private static String auslandString = "";
-	
+	 
 	
 	
 	private static String checkedDikumentString = "";
@@ -130,24 +130,24 @@ public class ExcelWriter {
 		 	 
 		 fis.close();
 		 System.out.println(" ");
-		 book.write(new FileOutputStream(archivlisteString));
+		book.write(new FileOutputStream(archivlisteString));
 		 System.out.println("Write is successfull");
 		 System.out.println(archivlisteString);
 		 Alert fnfAlert = new Alert(AlertType.CONFIRMATION);
-			fnfAlert.setTitle("schreiben erfolgreich");
-			fnfAlert.setContentText("Archivierung erfolgreich.");
-			fnfAlert.setHeaderText("whoop whoop");
-			fnfAlert.show();
-		 	book.close();
-			controller.resetAll();
+		 fnfAlert.setTitle("schreiben erfolgreich");
+		 fnfAlert.setContentText("Archivierung erfolgreich.");
+		 fnfAlert.setHeaderText("whoop whoop");
+		 fnfAlert.show();
+		book.close();
+		controller.resetAll();
 	}
 	
 	
 	public void findMissingDates()  {
 		
-		try {
-			FileInputStream fis  = new FileInputStream(new File(aktuelleProjektnamenListeString));
+		try (FileInputStream fis  = new FileInputStream(new File(aktuelleProjektnamenListeString));
 			XSSFWorkbook wbHssfWorkbook = new XSSFWorkbook(fis);
+			){
 			XSSFSheet sheet = wbHssfWorkbook.getSheetAt(2);
 			Iterator<Row> rowIterator = sheet.iterator();
 			while (rowIterator.hasNext()) {
@@ -189,45 +189,32 @@ public class ExcelWriter {
 	 */
 	public void configLoader() throws IOException {
 		File dateiFile = new File("ArchivConfig.txt");
-		try {
-				Scanner archivScanner = new Scanner(dateiFile); 
-				while(archivScanner.hasNextLine()) {
-					
-					String object = archivScanner.nextLine();
-					
-					if (object.charAt(0)=='2') {
-						controller.getSelectArchivListView().getItems().add(object.substring(3));
-						System.out.println("selectArchivListView = " + object.substring(3));
+		try (Scanner archivScanner = new Scanner(dateiFile);){
+		while(archivScanner.hasNextLine()) {
+		String object = archivScanner.nextLine();
+		if (object.charAt(0)=='2') {
+			controller.getSelectArchivListView().getItems().add(object.substring(3));
+			System.out.println("selectArchivListView = " + object.substring(3));
+			}
+		else if (object.charAt(0)=='1') {
+			aktuelleProjektnamenListeString = object.substring(3);
+			System.out.println("aktuelleProjektnamenListeString = " + object.substring(3));
+			System.out.println(aktuelleProjektnamenListeString);
 					}
-					else if (object.charAt(0)=='1') {
-						aktuelleProjektnamenListeString = object.substring(3);
-						
-						System.out.println("aktuelleProjektnamenListeString = " + object.substring(3));
-						System.out.println(aktuelleProjektnamenListeString);
-					}
-					else if (object.charAt(0)=='3') {
-						 archivlisteString = object.substring(3);
-					}
-				}
-				
+		else if (object.charAt(0)=='3') {
+			 archivlisteString = object.substring(3);
+			}
+		}
 		archivScanner.close();
-		
 		} catch (NumberFormatException e) {
-				e.printStackTrace();
+		e.printStackTrace();
 		} 
 		catch (FileNotFoundException e) {
-			
 			Alert fnfAlert = new Alert(AlertType.WARNING);
 			fnfAlert.setTitle("File not Found");
 			fnfAlert.setContentText("Kein File zu laden gefunden...");
 			fnfAlert.show();
 			e.printStackTrace();			
 		}
-		
-		finally {
-			
-			
-			}
-		}
-	
+	}
 }

@@ -58,48 +58,7 @@ public class DirectoryZipper {
         }
     }
     
-    /**
-     * This method zips the directory
-     * @param dir
-     * @param zipDirName
-     * @param newPathString
-     */
-//    public  void zipDirectory(File dir, String zipDirName, String newPathString) {
-//        try {
-//        	
-//        	
-//    populateFilesList(dir);
-//	//now zip files one by one
-//	//create ZipOutputStream to write to the zip file
-//	//File dir1 = new File(zipDirName);
-//	// File zipFile = new File(zipDirName + "\\\\" + prjDate + ".zip");
-//    FileOutputStream fos = new FileOutputStream(dir + ".zip");
-//    ZipOutputStream zos = new ZipOutputStream(fos);
-//            
-//    for(String newPath2 : filesListInDir){
-//    System.out.println("Zipping " + newPath2);
-//    //for ZipEntry we need to keep only relative file path, so we used substring on absolute path
-//    ZipEntry ze = new ZipEntry(newPath2.substring(dir.getAbsolutePath().length()+1, newPath2.length()));
-//    zos.putNextEntry(ze);
-//              
-//     System.out.println("test1: " + newPath2);
-//     //read the file and write to ZipOutputStream
-//     FileInputStream fis = new FileInputStream(newPath2);
-//     byte[] buffer = new byte[1024];
-//     int len;
-//     while ((len = fis.read(buffer)) > 0) {
-//           zos.write(buffer, 0, len);
-//           }
-//           zos.closeEntry();
-//           fis.close();
-//            }
-//             
-//      zos.close();
-//      fos.close();
-//      } catch (IOException e) {
-//            e.printStackTrace();
-//      }
-//    }
+ 
     
     /**
      * This method populates all the files in a directory to a List

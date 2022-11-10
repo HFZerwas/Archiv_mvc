@@ -46,11 +46,7 @@ public class Main extends Application {
 		SecondaryStage.initModality(Modality.WINDOW_MODAL);
 		SecondaryStage.hide();
 		MainController ourController = new MainController();
-		
-		
-		
-		
-		//ourController.setActionHandling();
+
 		
 	}
 

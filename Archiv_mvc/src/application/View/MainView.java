@@ -30,11 +30,11 @@ public class MainView {
 	private Text foundDocText;
 	private Text otherDocText;
 	private Button selectFiButton;
-    private Button selectArchivButton;
-    private Button getValuesButton;
-    private Button zipAndHashButton; 
-    private Button datasCheckedButton;
-    MainController controller;
+	private Button selectArchivButton;
+	private Button getValuesButton;
+	private Button zipAndHashButton; 
+	private Button datasCheckedButton;
+	MainController controller;
     
 	public MainView(MainController controller) throws IOException {
 		this.selectArchivListView = new ListView<String>();
@@ -64,10 +64,10 @@ public class MainView {
     selectFiButton.setLayoutY(layouty);
     application.Main.root.getChildren().add(selectFiButton);
     		    
-	selectArchivButton = new Button("Archiv Zielordner");
-	selectArchivButton.setLayoutX(layoutx);
-	selectArchivButton.setLayoutY(3*layouty);
-	application.Main.root.getChildren().add(selectArchivButton);
+    selectArchivButton = new Button("Archiv Zielordner");
+    selectArchivButton.setLayoutX(layoutx);
+    selectArchivButton.setLayoutY(3*layouty);
+    application.Main.root.getChildren().add(selectArchivButton);
     
     this.getValuesButton = new Button("Werte Ermitteln");
     getValuesButton.setLayoutX(layoutx);
@@ -101,121 +101,118 @@ public class MainView {
 	
 	/** Label */
 	
-	 projNrLabel = new Label("ermittelte Projektnummer: " );
-	 projNrLabel.setLayoutX(layoutx);
-	 projNrLabel.setLayoutY(10 * layouty);
-	 application.Main.root.getChildren().add(projNrLabel);
+ projNrLabel = new Label("ermittelte Projektnummer: " );
+ projNrLabel.setLayoutX(layoutx);
+ projNrLabel.setLayoutY(10 * layouty);
+ application.Main.root.getChildren().add(projNrLabel);
 	 
-	 getProjectNumberLabel().setLayoutX(12 * layoutx);
-	 getProjectNumberLabel().setLayoutY(10 * layouty);
-	 application.Main.root.getChildren().add(getProjectNumberLabel());
-	 
-	 
-	 dateLabel = new Label("ermitteltes Datum: ");
-	 dateLabel.setLayoutX(layoutx);
-	 dateLabel.setLayoutY(234);
-	 application.Main.root.getChildren().add(dateLabel);
+ getProjectNumberLabel().setLayoutX(12 * layoutx);
+ getProjectNumberLabel().setLayoutY(10 * layouty);
+ application.Main.root.getChildren().add(getProjectNumberLabel());
 	 
 	 
-	 
-	 getProjectDaTeLabel().setLayoutX(234);
-	 getProjectDaTeLabel().setLayoutY(236);
-	 application.Main.root.getChildren().add(getProjectDaTeLabel());
-	 
-	 hashLabel = new Label("ermittelter Hashwert: ");
-	 hashLabel.setLayoutX(layoutx);
-	 hashLabel.setLayoutY(260);
-	 application.Main.root.getChildren().add(hashLabel);
+ dateLabel = new Label("ermitteltes Datum: ");
+ dateLabel.setLayoutX(layoutx);
+ dateLabel.setLayoutY(234);
+ application.Main.root.getChildren().add(dateLabel);
 	 
 	 
-	 getProjectHashLabel().setLayoutX(234);
-	 getProjectHashLabel().setLayoutY(260);
-	 application.Main.root.getChildren().add(getProjectHashLabel());
+	 
+ getProjectDaTeLabel().setLayoutX(234);
+ getProjectDaTeLabel().setLayoutY(236);
+ application.Main.root.getChildren().add(getProjectDaTeLabel());
+	 
+ hashLabel = new Label("ermittelter Hashwert: ");
+ hashLabel.setLayoutX(layoutx);
+ hashLabel.setLayoutY(260);
+ application.Main.root.getChildren().add(hashLabel);
+	 
+	 
+ getProjectHashLabel().setLayoutX(234);
+ getProjectHashLabel().setLayoutY(260);
+ application.Main.root.getChildren().add(getProjectHashLabel());
 	
-	 afterZipLabel = new Label("(nach Komprimierung)");
-	 afterZipLabel.setLayoutX(layoutx);
-	 afterZipLabel.setLayoutY(280);
-	 application.Main.root.getChildren().add(afterZipLabel);
+ afterZipLabel = new Label("(nach Komprimierung)");
+ afterZipLabel.setLayoutX(layoutx);
+ afterZipLabel.setLayoutY(280);
+ application.Main.root.getChildren().add(afterZipLabel);
 	
 	 
 	 
 /** Text & TextAreas*/
 	 
-	 foundDocText = new Text("Eintragung für Reiter abgelegte Dokumente:");
-	 foundDocText.setX(10);    
-	 foundDocText.setY(20);
-	 foundDocText.setFont(Font.font("Verdana", 20));
-	 foundDocText.setUnderline(true);
-	 application.Main.root2.getChildren().add(foundDocText);
-	    
-	    
-	 
-	 getFoundDocumentsTextArea().setEditable(true);
-	 getFoundDocumentsTextArea().setWrapText(true);
-	 getFoundDocumentsTextArea().setCenterShape(true);
-	 getFoundDocumentsTextArea().setLayoutX(5);
-	 getFoundDocumentsTextArea().setLayoutY(35);
-	 getFoundDocumentsTextArea().setMaxHeight(100);
-	 application.Main.root2.getChildren().add(getFoundDocumentsTextArea());
+foundDocText = new Text("Eintragung für Reiter abgelegte Dokumente:");
+foundDocText.setX(10);    
+foundDocText.setY(20);
+foundDocText.setFont(Font.font("Verdana", 20));
+foundDocText.setUnderline(true);
+application.Main.root2.getChildren().add(foundDocText);
+     
+getFoundDocumentsTextArea().setEditable(true);
+getFoundDocumentsTextArea().setWrapText(true);
+getFoundDocumentsTextArea().setCenterShape(true);
+getFoundDocumentsTextArea().setLayoutX(5);
+getFoundDocumentsTextArea().setLayoutY(35);
+getFoundDocumentsTextArea().setMaxHeight(100);
+application.Main.root2.getChildren().add(getFoundDocumentsTextArea());
 
-	 otherDocText = new Text("gefundene Dokumente im Ordner - \nEintragung im Reiter DOC-ID.");
-	 otherDocText.setX(10);    
-	 otherDocText.setY(160);
-	 otherDocText.setFont(Font.font("Verdana", 12));
-	 otherDocText.setUnderline(false);
-	 application.Main.root2.getChildren().add(otherDocText);
+otherDocText = new Text("gefundene Dokumente im Ordner - \nEintragung im Reiter DOC-ID.");
+otherDocText.setX(10);    
+otherDocText.setY(160);
+otherDocText.setFont(Font.font("Verdana", 12));
+otherDocText.setUnderline(false);
+application.Main.root2.getChildren().add(otherDocText);
+ 
 	 
+getDocIdtextArea().setEditable(true);
+getDocIdtextArea().setWrapText(true);
+getDocIdtextArea().setCenterShape(true);
+getDocIdtextArea().setLayoutX(5);
+getDocIdtextArea().setLayoutY(180);
+getDocIdtextArea().setMaxHeight(140);
+application.Main.root2.getChildren().add(getDocIdtextArea());
 	 
-	 getDocIdtextArea().setEditable(true);
-	 getDocIdtextArea().setWrapText(true);
-	 getDocIdtextArea().setCenterShape(true);
-	 getDocIdtextArea().setLayoutX(5);
-	 getDocIdtextArea().setLayoutY(180);
-	 getDocIdtextArea().setMaxHeight(140);
-	 application.Main.root2.getChildren().add(getDocIdtextArea());
-	 
-	 getSelectFileTextarea().setMaxHeight(15);
-	 getSelectFileTextarea().setPrefWidth(500);
-	 getSelectFileTextarea().setLayoutX(160);
-	 getSelectFileTextarea().setLayoutY(20);
-	 getSelectFileTextarea().setEditable(false);
-	 application.Main.root.getChildren().add(getSelectFileTextarea());
+getSelectFileTextarea().setMaxHeight(15);
+getSelectFileTextarea().setPrefWidth(500);
+getSelectFileTextarea().setLayoutX(160);
+getSelectFileTextarea().setLayoutY(20);
+getSelectFileTextarea().setEditable(false);
+application.Main.root.getChildren().add(getSelectFileTextarea());
 	 
 	 
 	 
 	 /* Eventhandling */
-	 selectFiButton.setOnAction(e ->{
-		 controller.selectFile();
-		 });
-	
-	 
-	 selectArchivButton.setOnAction(e ->{
-		controller.selectArchive();
-		});
-	 
-	 getValuesButton.setOnAction(e ->{
-		controller.getValues();
-		Main.toggleSecondStage();
+ selectFiButton.setOnAction(e ->{
+	 controller.selectFile();
 	 });
 	
-	zipAndHashButton.setOnAction(e -> {
+	 
+ selectArchivButton.setOnAction(e ->{
+	controller.selectArchive();
+	});
+	 
+ getValuesButton.setOnAction(e ->{
+	controller.getValues();
+	Main.toggleSecondStage();
+ 	});
+	
+zipAndHashButton.setOnAction(e -> {
 		
 	if (controller.getSelectFileTextarea().getText().equals(controller.getZipDirName())){
 		if (controller.getSafeToSaveStatus()) {
-			try {
-				controller.configloader();
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
-			controller.findMissingDates();
-			controller.copyToArchive();
-			try {
-				controller.writeExcel();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+		try {
+			controller.configloader();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
-	
+		controller.findMissingDates();
+		controller.copyToArchive();
+		try {
+			controller.writeExcel();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		}
 	}else{
 	Alert fnfAlert = new Alert(AlertType.WARNING);
 	fnfAlert.setTitle("Ermittelte Werte nicht konsistent");

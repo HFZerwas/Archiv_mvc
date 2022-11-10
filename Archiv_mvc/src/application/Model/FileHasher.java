@@ -16,16 +16,13 @@ public class FileHasher {
 		hashFile();
 	}
 	
-
-	
-	
 	/** hash-funktion */
 	private void hashFile() {
 	
 	try {
-	byte[] mdSHA512  = MessageDigest.getInstance("SHA-512").digest(Files.readAllBytes(Paths.get(this.model.getZipDirName() + ".zip")));
-	StringBuilder s = new StringBuilder();
-	for(byte b : mdSHA512) {
+		byte[] mdSHA512  = MessageDigest.getInstance("SHA-512").digest(Files.readAllBytes(Paths.get(this.model.getZipDirName() + ".zip")));
+		StringBuilder s = new StringBuilder();
+		for(byte b : mdSHA512) {
 		s.append(String.format("%02x",b));
 		}
 		hashValue2 = s.toString();

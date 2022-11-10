@@ -23,30 +23,27 @@ public class Model {
 	ExcelWriter excelWriter;
 	
 public Model(MainController controller) throws IOException {
-		this.controller = controller;
-		this.zippedFile = new DirectoryZipper(this.controller);
-		this.excelWriter = new ExcelWriter(this.controller, this);
-		}
+	this.controller = controller;
+	this.zippedFile = new DirectoryZipper(this.controller);
+	this.excelWriter = new ExcelWriter(this.controller, this);
+	}
 	
 	
 public void selectFile() {
 		
-		DirectoryChooser fChooser = new DirectoryChooser();
-		File selectedFile = fChooser.showDialog(null);
-		
-		
-		if (selectedFile != null) {
-			this.dir = selectedFile;
-			this.controller.getSelectFileTextarea().clear();
-			this.controller.setSelectFileTextarea(selectedFile.getAbsolutePath());
-			this.zipDirName = selectedFile.getAbsolutePath();
-			System.out.println(this.zipDirName);
-		} else {
-			System.out.println("select File hat nicht geklappt");
-			}
+	DirectoryChooser fChooser = new DirectoryChooser();
+	File selectedFile = fChooser.showDialog(null);
+	if (selectedFile != null) {
+		this.dir = selectedFile;
+		this.controller.getSelectFileTextarea().clear();
+		this.controller.setSelectFileTextarea(selectedFile.getAbsolutePath());
+		this.zipDirName = selectedFile.getAbsolutePath();
+		System.out.println(this.zipDirName);
+	} else {
+		System.out.println("select File hat nicht geklappt");
 	}
+}
 	 
-	
 	
 public void selectArchive() {
 	DirectoryChooser dChooser = new DirectoryChooser();
@@ -59,11 +56,8 @@ public void selectArchive() {
 	} else {	
 		System.out.println("\n select Archiv hat nicht geklappt. \n");
 	}
+}
 	
-	}
-	
-
-
 public void getValues() {
 	
 if (this.gotValues == false) {
@@ -100,7 +94,7 @@ if (this.gotValues == false) {
 			}
 							
 		else if (filePath.contains("checkliste")) {
-			if (checklistCounter == 0) {
+		if (checklistCounter == 0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Checklisten\n");
 			}								
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.indexOf('.')) + "\n");
@@ -111,17 +105,15 @@ if (this.gotValues == false) {
 			this.controller.getFoundDocumentsTextArea().appendText("\nWeitere Dokumentation zu Gutachten\n");
 			}	
 			}else {
-				filePath.indexOf('.');
-				this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
-				}
+			filePath.indexOf('.');
+			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
+			}
 			} 
 			if (gutachtenCounter != checklistCounter || gutachtenCounter != (2*checklistCounter)) { 
-				this.controller.getFoundDocumentsTextArea().appendText("\nAnzahl der Checklisten entspricht nicht der Anzahl der Gutachten");
+			this.controller.getFoundDocumentsTextArea().appendText("\nAnzahl der Checklisten entspricht nicht der Anzahl der Gutachten");
 				}
-			
-			} else {
-			
- 		Alert fnfAlert = new Alert(AlertType.WARNING);
+		} else {
+		Alert fnfAlert = new Alert(AlertType.WARNING);
 		fnfAlert.setTitle("File not Found");
 		fnfAlert.setContentText("Ziel-Ordner muss angegeben werden oder Werte bereits ermittelt.");
 		fnfAlert.show();
@@ -129,7 +121,6 @@ if (this.gotValues == false) {
 		}
 			
 	}
-
 
 	private void hashMeIfYouCan() {
 
@@ -183,15 +174,18 @@ public void getDateWithDots() {
 			String datefirsthalfString 	 = String.valueOf(date).substring(0,4);
 			String datesecondthalfString = String.valueOf(date).substring(4,8);
 						
-			if (Integer.valueOf(datesecondthalfString)>2012 && (Integer.valueOf(datefirsthalfString)<2013 || Integer.valueOf(datefirsthalfString)>2100))
+			if (Integer.valueOf(datesecondthalfString)>2012 && (Integer.valueOf(datefirsthalfString)<2013 
+					|| Integer.valueOf(datefirsthalfString)>2100))
 			{
 				this.excelWriter.archiveYearString = String.valueOf((Integer.valueOf(datesecondthalfString) + 10));
-				this.excelWriter.archivedateString = datefirsthalfString.substring(0,2) + "." + datefirsthalfString.substring(2) + "." + datesecondthalfString;
+				this.excelWriter.archivedateString = datefirsthalfString.substring(0,2) + "." + datefirsthalfString.substring(2) 
+				+ "." + datesecondthalfString;
 				System.out.println("archivedateString =" + this.excelWriter.archivedateString);
 				
 			}else {
 				this.excelWriter.archiveYearString = String.valueOf((Integer.valueOf(datefirsthalfString) + 10));
-				this.excelWriter.archivedateString =  datesecondthalfString.substring(2)  + "." + datesecondthalfString.substring(0, 2) + "." + datefirsthalfString;
+				this.excelWriter.archivedateString =  datesecondthalfString.substring(2)  + "." 
+				+ datesecondthalfString.substring(0, 2) + "." + datefirsthalfString;
 				System.out.println("archivedateString =" + this.excelWriter.archivedateString);
 				this.controller.getProjectDaTeLabel().setText(this.excelWriter.archivedateString);
 				}
@@ -201,7 +195,7 @@ public void getDateWithDots() {
 public void resetAll() {
 	
 	dir = new File("");
-    zipDirName = "";
+	zipDirName = "";
 	projectNumber = 0;
 	date = 0;
 	gotValues = false;
