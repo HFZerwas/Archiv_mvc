@@ -29,21 +29,7 @@ public Model(MainController controller) throws IOException {
 	}
 	
 	
-//public void selectFile() {
-//		
-//	DirectoryChooser directoryChooser = new DirectoryChooser();
-//	File selectedFile = directoryChooser.showDialog(null);
-//	if (selectedFile != null) {
-//		this.dir = selectedFile;
-//		this.controller.getSelectFileTextarea().clear();
-//		this.controller.setSelectFileTextarea(selectedFile.getAbsolutePath());
-//		this.zipDirName = selectedFile.getAbsolutePath();
-//		System.out.println(this.zipDirName);
-//	} else {
-//		System.out.println("select File hat nicht geklappt");
-//	}
-//}
-	 
+ 
 	
 public void selectDirectory(int choosenButton) {
 	DirectoryChooser dChooser = new DirectoryChooser();
@@ -116,7 +102,7 @@ if (this.gotValues == false) {
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
 			}
 			} 
-			if (gutachtenCounter != checklistCounter || gutachtenCounter != (2*checklistCounter)) { 
+			if (gutachtenCounter != checklistCounter && gutachtenCounter != (2*checklistCounter)) { 
 			this.controller.getFoundDocumentsTextArea().appendText("\nAnzahl der Checklisten entspricht nicht der Anzahl der Gutachten");
 				}
 		} else {
