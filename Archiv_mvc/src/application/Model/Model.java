@@ -78,13 +78,16 @@ if (this.gotValues == false) {
 	 int gutachtenCounter = 0;
 	 boolean moreDokuments = false;
 	 for(String filePath : zippedFile.filesListInDir) {
-		if(filePath.contains("GUT") && !(filePath.contains("heckliste"))) {
+		 
+		if(filePath.contains("GUT")) {
 		if (gutachtenCounter==0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Gutachten\n");
 			}
+		if((filePath.contains("heckliste") == false)) {
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			gutachtenCounter++;
 			}
+		}
 							
 		if (filePath.contains("heckliste") && filePath.contains("GUT")) {
 		if (checklistCounter == 0) {
@@ -97,15 +100,14 @@ if (this.gotValues == false) {
 			if (!moreDokuments) {
 			moreDokuments=true;
 			this.controller.getFoundDocumentsTextArea().appendText("\nWeitere Dokumentation zu Gutachten\n");
-			}	
-			}else {
-			filePath.indexOf('.');
-			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			}
-			} 
+		}
+	 }  
 			if (gutachtenCounter != checklistCounter && gutachtenCounter != (2*checklistCounter)) { 
 			this.controller.getFoundDocumentsTextArea().appendText("\nAnzahl der Checklisten entspricht nicht der Anzahl der Gutachten");
 				}
+			System.out.println("Gutachtencounter= " +gutachtenCounter);
+			System.out.println("Checklistencounter= " +checklistCounter);
 		} else {
 		Alert fnfAlert = new Alert(AlertType.WARNING);
 		fnfAlert.setTitle("File not Found");
