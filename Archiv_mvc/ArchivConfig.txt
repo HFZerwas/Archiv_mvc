@@ -1,0 +1,7 @@
+1: E:\\Eclipse-Workspace\\Archiv_V2\\aktuelleProjektnamenListe.xlsx
+2: D:\ESE_ArchivTest
+3: E:\\Eclipse-Workspace\\Archiv_V2\\\TestFile.xlsx
+Aufbau des Pfades nach dem Muster: 
+#		1: D:\ESE_ArchivTest
+#1 = aktuelle Projektnamenliste
+#2 = Archivpfad
