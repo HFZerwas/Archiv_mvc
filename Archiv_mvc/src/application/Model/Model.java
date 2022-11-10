@@ -82,7 +82,7 @@ if (this.gotValues == false) {
 		if (gutachtenCounter==0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Gutachten\n");
 			}
-			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.indexOf('.')) + "\n");
+			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
 			gutachtenCounter++;
 			}
 							
@@ -90,7 +90,8 @@ if (this.gotValues == false) {
 		if (checklistCounter == 0) {
 			this.controller.getFoundDocumentsTextArea().appendText("Checklisten\n");
 			}								
-			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.indexOf('.')) + "\n");
+			//this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
+			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			checklistCounter++;
 			}else if (filePath.substring(this.zipDirName.length()+1).contains("\\")) {
 			if (!moreDokuments) {
@@ -99,7 +100,7 @@ if (this.gotValues == false) {
 			}	
 			}else {
 			filePath.indexOf('.');
-			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1,filePath.lastIndexOf('.')) + "\n");
+			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
 			}
 			} 
 			if (gutachtenCounter != checklistCounter && gutachtenCounter != (2*checklistCounter)) { 
