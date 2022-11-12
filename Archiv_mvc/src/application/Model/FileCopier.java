@@ -1,9 +1,6 @@
 package application.Model;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
+import java.io.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 

@@ -3,12 +3,8 @@ import java.io.IOException;
 
 import application.Main;
 import application.Controller.MainController;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 

@@ -2,7 +2,6 @@ package application.Model;
 
 import java.io.File;
 import java.io.IOException;
-
 import application.Controller.MainController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -85,8 +84,8 @@ if (this.gotValues == false) {
 			}
 		if((filePath.contains("heckliste") == false)) {
 			this.controller.getDocIdtextArea().appendText(filePath.substring(this.zipDirName.length()+1) + "\n");
-			gutachtenCounter++;
 			}
+		gutachtenCounter++;
 		}
 							
 		if (filePath.contains("heckliste") && filePath.contains("GUT")) {

@@ -1,14 +1,10 @@
 package application.Controller;
 
 import java.io.IOException;
-
-import application.Model.ExcelWriter;
-import application.Model.FileCopier;
-import application.Model.Model;
+import application.Model.*;
 import application.View.MainView;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+
 
 public class MainController {
 
