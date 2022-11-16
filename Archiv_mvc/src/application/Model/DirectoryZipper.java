@@ -5,15 +5,15 @@ import java.util.*;
 import java.util.zip.*;
 
 
-import application.Controller.MainController;
+
 
 public class DirectoryZipper {
 
-	MainController controller;
+	
     List<String> filesListInDir = new ArrayList<String>();
 	
-	public DirectoryZipper(MainController controller) {
-	this.controller = controller;	
+	public DirectoryZipper() {
+		
 	}
 	
     /**

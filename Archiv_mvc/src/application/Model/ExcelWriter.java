@@ -36,8 +36,8 @@ public class ExcelWriter {
 	private static String checkedDikumentString = "";
 	private static String docIDString = "";
 	
-	MainController controller;
-	Model model;
+	private MainController controller;
+	private Model model;
 	
 	public ExcelWriter(MainController controller, Model model) throws IOException {
 		this.controller = controller;

@@ -21,16 +21,14 @@ public void copyToArchive() {
 		   		+ ExcelWriter.foundProjNameString + "\\" +  this.model.getDate());
 		if (this.model.gotValues == false) {
 			
-			 Alert fnfAlert = new Alert(AlertType.WARNING);
-				fnfAlert.setTitle("Werte Ermitteln");
-				fnfAlert.setContentText("Erst Werte ermitteln und kontrollieren");
-				fnfAlert.show();
+			Alert fnfAlert = new Alert(AlertType.WARNING);
+			fnfAlert.setTitle("Werte Ermitteln");
+			fnfAlert.setContentText("Erst Werte ermitteln und kontrollieren");
+			fnfAlert.show();
 		} else {
 			 try {
-
-			
-		    System.out.println(newFilePath);
-		    System.out.println(newFilePath + "\\" + this.model.getDate() 
+				 System.out.println(newFilePath);
+				 System.out.println(newFilePath + "\\" + this.model.getDate() 
 	               		+ ExcelWriter.foundProjNameString 
 	            		+ this.model.archivPfadString +  ".zip");
 		          		           

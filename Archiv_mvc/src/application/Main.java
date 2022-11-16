@@ -44,7 +44,7 @@ public class Main extends Application {
 		SecondaryStage.setTitle("Kontrolle der Dokumente");
 		SecondaryStage.initModality(Modality.WINDOW_MODAL);
 		SecondaryStage.hide();
-		MainController ourController = new MainController();
+		new MainController();
 
 		
 	}

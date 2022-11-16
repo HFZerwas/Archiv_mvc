@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 public class FileHasher {
 
 	Model model;
-	String hashValue2;
 	
 	public FileHasher(Model model) {
 		this.model = model;
@@ -25,7 +24,7 @@ public class FileHasher {
 		for(byte b : mdSHA512) {
 		s.append(String.format("%02x",b));
 		}
-		hashValue2 = s.toString();
+		String hashValue2 = s.toString();
 		this.model.controller.getProjectHashLabel().setText(hashValue2);
 		ExcelWriter.hashValueString = hashValue2;
 	} catch (NoSuchAlgorithmException e11) {

@@ -23,7 +23,7 @@ public class Model {
 	
 public Model(MainController controller) throws IOException {
 	this.controller = controller;
-	this.zippedFile = new DirectoryZipper(this.controller);
+	this.zippedFile = new DirectoryZipper();
 	this.excelWriter = new ExcelWriter(this.controller, this);
 	}
 	
@@ -66,7 +66,7 @@ if (this.gotValues == false) {
 	
 	this.controller.getProjectNumberLabel().setText(String.valueOf(this.projectNumber));
 	this.controller.getProjectDaTeLabel().setText(String.valueOf(this.date));
-	DirectoryZipper zippedFile = new DirectoryZipper(controller);
+	DirectoryZipper zippedFile = new DirectoryZipper();
 	zippedFile.zipDirectory(this.dir,  this.zipDirName);
 			
 	hashMeIfYouCan();
